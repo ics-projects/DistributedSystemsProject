@@ -16,7 +16,8 @@ public class MainView extends JFrame {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
-        this.setSize(500, 300);
+        this.setSize(800, 300);
+        this.setLocationRelativeTo(null);
     }
 
     public JButton getToyInfoBtn() {

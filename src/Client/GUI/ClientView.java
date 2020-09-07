@@ -34,7 +34,8 @@ public class ClientView extends JFrame {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
-        this.pack();
+        this.setSize(800, 500);
+        this.setLocationRelativeTo(null);
     }
 
     public JTextArea getMessageTextArea() {

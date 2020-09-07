@@ -4,6 +4,7 @@ import Models.Message;
 import Models.Toy;
 
 import java.io.*;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -37,6 +38,9 @@ public class SocketClient implements ClientMessageListener {
                 }
             } catch (UnknownHostException e) {
                 System.err.println("Don't know about host " + hostName);
+                System.exit(1);
+            } catch (ConnectException e) {
+                System.err.println("Connection Refused");
                 System.exit(1);
             } catch (IOException e) {
                 e.printStackTrace();
