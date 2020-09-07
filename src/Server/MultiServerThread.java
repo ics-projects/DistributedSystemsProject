@@ -38,6 +38,8 @@ public class MultiServerThread implements Runnable, ServerMessageListener {
 
             socket.close();
 
+        } catch (EOFException eof) {
+            System.out.println("Client closed the connection.");
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
