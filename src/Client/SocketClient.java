@@ -53,9 +53,9 @@ public class SocketClient implements ClientMessageListener {
     }
 
     @Override
-    public void sendToyId(Toy toy) {
+    public void sendToy(Toy toy) {
         try {
-            clientProtocol.sendToyId(toy);
+            clientProtocol.sendToy(toy);
             controller.postToy(toy);
         } catch (IOException e) {
             e.printStackTrace();

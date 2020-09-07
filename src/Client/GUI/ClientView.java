@@ -14,12 +14,12 @@ public class ClientView extends JFrame {
     private JPanel toyManuPane;
     private JPanel toyAllPane;
     private JPanel toyThanksPane;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
-    private JButton sendButton;
+    private JTextField infoNameField;
+    private JTextField infoDescField;
+    private JTextField infoPriceField;
+    private JTextField infoDomField;
+    private JTextField infoBatchField;
+    private JButton infoSendBtn;
     private JTextField textField6;
     private JTextField textField7;
     private JTextField textField8;
@@ -51,5 +51,29 @@ public class ClientView extends JFrame {
 
     public JButton getIdSendBtn() {
         return idSendBtn;
+    }
+
+    public JTextField getInfoNameField() {
+        return infoNameField;
+    }
+
+    public JTextField getInfoDescField() {
+        return infoDescField;
+    }
+
+    public JTextField getInfoPriceField() {
+        return infoPriceField;
+    }
+
+    public JTextField getInfoDomField() {
+        return infoDomField;
+    }
+
+    public JTextField getInfoBatchField() {
+        return infoBatchField;
+    }
+
+    public JButton getInfoSendBtn() {
+        return infoSendBtn;
     }
 }

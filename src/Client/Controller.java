@@ -24,6 +24,32 @@ public class Controller {
         socketClient = new SocketClient(this);
         socketClient.startClient(hostName, portNumber);
         view.getIdSendBtn().addActionListener(this::sendToyIdentification);
+        view.getInfoSendBtn().addActionListener(this::sendToyInformation);
+    }
+
+    private void sendToyInformation(ActionEvent event) {
+        JTextField nameField = view.getInfoNameField();
+        JTextField description = view.getInfoDescField();
+        JTextField price = view.getInfoPriceField();
+        JTextField dom = view.getInfoDomField();
+        JTextField batchNumber = view.getInfoBatchField();
+
+        Toy toy = new Toy();
+        toy.setName(nameField.getText());
+        toy.setDescription(description.getText());
+        toy.setPrice(Integer.parseInt(price.getText()));
+        toy.setDom(dom.getText());
+        toy.setBatchNumber(batchNumber.getText());
+
+        socketClient.sendToy(toy);
+
+        nameField.setText(null);
+        description.setText(null);
+        price.setText(null);
+        dom.setText(null);
+        batchNumber.setText(null);
+
+        JOptionPane.showMessageDialog(null, "Data Sent");
     }
 
     private void sendToyIdentification(ActionEvent event) {
@@ -34,7 +60,7 @@ public class Controller {
         toy.setName(nameField.getText());
         toy.setCode(codeField.getText());
 
-        socketClient.sendToyId(toy);
+        socketClient.sendToy(toy);
         nameField.setText(null);
         codeField.setText(null);
         JOptionPane.showMessageDialog(null, "Data Sent");

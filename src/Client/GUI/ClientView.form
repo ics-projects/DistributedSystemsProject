@@ -91,7 +91,7 @@
                       <text value="Name"/>
                     </properties>
                   </component>
-                  <component id="ef192" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                  <component id="ef192" class="javax.swing.JTextField" binding="infoNameField">
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -107,7 +107,7 @@
                       <text value="Description"/>
                     </properties>
                   </component>
-                  <component id="610c8" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+                  <component id="610c8" class="javax.swing.JTextField" binding="infoDescField">
                     <constraints>
                       <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -123,7 +123,7 @@
                       <text value="Price"/>
                     </properties>
                   </component>
-                  <component id="41013" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+                  <component id="41013" class="javax.swing.JTextField" binding="infoPriceField">
                     <constraints>
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -139,7 +139,7 @@
                       <text value="Date of Manufacture"/>
                     </properties>
                   </component>
-                  <component id="d4a11" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+                  <component id="d4a11" class="javax.swing.JTextField" binding="infoDomField">
                     <constraints>
                       <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -155,7 +155,7 @@
                       <text value="Batch Number"/>
                     </properties>
                   </component>
-                  <component id="625ee" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+                  <component id="625ee" class="javax.swing.JTextField" binding="infoBatchField">
                     <constraints>
                       <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
@@ -163,7 +163,7 @@
                     </constraints>
                     <properties/>
                   </component>
-                  <component id="3c3c3" class="javax.swing.JButton" binding="sendButton" default-binding="true">
+                  <component id="3c3c3" class="javax.swing.JButton" binding="infoSendBtn">
                     <constraints>
                       <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>

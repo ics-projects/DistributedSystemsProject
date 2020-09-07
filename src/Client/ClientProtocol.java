@@ -13,7 +13,7 @@ public class ClientProtocol {
         this.objectOutputStream = objectOutputStream;
     }
 
-    public void sendToyId(Toy toy) throws IOException {
+    public void sendToy(Toy toy) throws IOException {
         objectOutputStream.writeObject(toy);
     }
 }
