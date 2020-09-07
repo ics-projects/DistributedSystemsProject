@@ -25,7 +25,7 @@ public class ClientView extends JFrame {
     private JTextField manZipField;
     private JTextField manCountryField;
     private JButton manSendBtn;
-    private JButton sendThanksButton;
+    private JButton sendThanksBtn;
     private JTextArea messageTextArea;
     private JPanel mainPanel;
 
@@ -95,5 +95,9 @@ public class ClientView extends JFrame {
 
     public JButton getManSendBtn() {
         return manSendBtn;
+    }
+
+    public JButton getSendThanksBtn() {
+        return sendThanksBtn;
     }
 }

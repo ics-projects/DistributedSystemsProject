@@ -8,6 +8,7 @@ import Models.Util;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.UUID;
 
 public class Controller {
     private final String hostName;
@@ -27,6 +28,15 @@ public class Controller {
         view.getIdSendBtn().addActionListener(this::sendToyIdentification);
         view.getInfoSendBtn().addActionListener(this::sendToyInformation);
         view.getManSendBtn().addActionListener(this::sendManufacturing);
+        view.getSendThanksBtn().addActionListener(this::sendThanks);
+    }
+
+    private void sendThanks(ActionEvent event) {
+        UUID uuid = UUID.randomUUID();
+
+        Toy toy = new Toy();
+        toy.setName("Thanks - " + uuid.toString());
+        socketClient.sendToy(toy);
     }
 
     private void sendManufacturing(ActionEvent event) {

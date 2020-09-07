@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 
 public class ClientProtocol {
 
-    private ObjectOutputStream objectOutputStream;
+    private final ObjectOutputStream objectOutputStream;
 
     public ClientProtocol(ObjectOutputStream objectOutputStream) {
         this.objectOutputStream = objectOutputStream;
