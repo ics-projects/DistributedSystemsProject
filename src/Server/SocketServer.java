@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class SocketServer {
 
     private final Controller controller;
-    private final List<MessagesListener> clientTasks;
+    private final List<ServerMessageListener> clientTasks;
 
     public SocketServer(Controller controller) {
         this.controller = controller;
@@ -44,31 +44,31 @@ public class SocketServer {
     }
 
     public void requestToyInformation() {
-        for (MessagesListener listener : clientTasks) {
+        for (ServerMessageListener listener : clientTasks) {
             listener.requestToyInformation();
         }
     }
 
     public void requestToyId() {
-        for (MessagesListener listener : clientTasks) {
+        for (ServerMessageListener listener : clientTasks) {
             listener.requestToyId();
         }
     }
 
     public void requestManufacturer() {
-        for (MessagesListener listener : clientTasks) {
+        for (ServerMessageListener listener : clientTasks) {
             listener.requestManufacturer();
         }
     }
 
     public void requestThanks() {
-        for (MessagesListener listener : clientTasks) {
+        for (ServerMessageListener listener : clientTasks) {
             listener.requestThanks();
         }
     }
 
     public void requestAll() {
-        for (MessagesListener listener : clientTasks) {
+        for (ServerMessageListener listener : clientTasks) {
             listener.requestAll();
         }
     }

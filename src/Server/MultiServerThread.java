@@ -5,7 +5,7 @@ import Models.Toy;
 import java.io.*;
 import java.net.Socket;
 
-public class MultiServerThread implements Runnable, MessagesListener {
+public class MultiServerThread implements Runnable, ServerMessageListener {
     private final Socket socket;
     private ServerProtocol serverProtocol;
     private final Controller controller;

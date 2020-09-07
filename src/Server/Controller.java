@@ -1,6 +1,7 @@
 package Server;
 
 import Models.Toy;
+import Models.Util;
 import Server.GUI.MainView;
 
 import java.awt.event.ActionEvent;
@@ -52,6 +53,6 @@ public class Controller {
     }
 
     public void postToy(Toy clientToy) {
-
+        mainView.getMessageTextArea().append("Client: " + Util.printToyObject(clientToy));
     }
 }

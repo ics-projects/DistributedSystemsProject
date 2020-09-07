@@ -1,6 +1,6 @@
 package Server;
 
-public interface MessagesListener {
+public interface ServerMessageListener {
     void requestToyInformation();
 
     void requestToyId();

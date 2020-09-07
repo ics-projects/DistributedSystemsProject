@@ -19,6 +19,9 @@ public class Constants {
     public static final int E = 1005;
     public static final String MESSAGE_E = "Server : Send all the toy information";
 
+    public static final int F = 1006;
+    public static final String MESSAGE_F = "Client : Toy Identification: ";
+
     public static final int ERROR = 1111;
     public static final String ERROR_MESSAGE ="Enter Correct Format";
 }

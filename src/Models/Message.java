@@ -3,23 +3,23 @@ package Models;
 import java.io.Serializable;
 
 public class Message implements Serializable {
-    private int MessageCode;
-    private String Message;
+    private int code;
+    private String messageText;
 
-    public void setMessage(String message) {
-        Message = message;
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
     }
 
-    public void setMessageCode(int messageCode) {
-        MessageCode = messageCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public int getMessageCode() {
-        return MessageCode;
+    public int getCode() {
+        return code;
     }
 
-    public String getMessage() {
-        return Message;
+    public String getMessageText() {
+        return messageText;
     }
 
 }

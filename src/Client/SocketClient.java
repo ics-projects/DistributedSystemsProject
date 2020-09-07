@@ -1,45 +1,63 @@
 package Client;
 
 import Models.Message;
+import Models.Toy;
 
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class SocketClient {
-    public static void main(String[] args) {
+public class SocketClient implements ClientMessageListener {
 
-        if (args.length != 2) {
-            System.err.println(
-                    "Usage: java EchoClient <host name> <port number>");
-            System.exit(1);
-        }
+    private final Controller controller;
+    private ClientProtocol clientProtocol;
 
-        String hostName = args[0];
-        int portNumber = Integer.parseInt(args[1]);
+    public SocketClient(Controller controller) {
+        this.controller = controller;
+    }
 
-        try (
-                Socket socket = new Socket(hostName, portNumber);
-                InputStream inputStream = socket.getInputStream();
-                ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+    public void startClient(String hostName, int portNumber) {
+        Runnable clientApp = () -> {
+            try (
+                    Socket socket = new Socket(hostName, portNumber);
+                    InputStream inputStream = socket.getInputStream();
+                    ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
 
-                OutputStream outputStream = socket.getOutputStream();
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)
-        ) {
-            System.out.println("Server Connected...");
+                    OutputStream outputStream = socket.getOutputStream();
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)
+            ) {
+                System.out.println("Server Connected...");
 
-            while (socket.getInputStream() != null) {
-                Message message = (Message) objectInputStream.readObject();
-                System.out.println(message.getMessage());
+                clientProtocol = new ClientProtocol(objectOutputStream);
+
+                while (socket.getInputStream() != null) {
+                    Message message = (Message) objectInputStream.readObject();
+                    System.out.println(message.getMessageText());
+                    controller.postMessage(message);
+                }
+            } catch (UnknownHostException e) {
+                System.err.println("Don't know about host " + hostName);
+                System.exit(1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("Couldn't get I/O for the connection to " +
+                        hostName);
+                System.exit(1);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        } catch (UnknownHostException e) {
-            System.err.println("Don't know about host " + hostName);
-            System.exit(1);
+        };
+
+        Thread clientSocketThread = new Thread(clientApp);
+        clientSocketThread.start();
+    }
+
+    @Override
+    public void sendToyId(Toy toy) {
+        try {
+            clientProtocol.sendToyId(toy);
+            controller.postToy(toy);
         } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to " +
-                    hostName);
-            System.exit(1);
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

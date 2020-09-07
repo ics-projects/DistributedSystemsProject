@@ -16,50 +16,50 @@ public class ServerProtocol {
 
     public void requestToyName() throws IOException {
         message = new Message();
-        message.setMessage(Constants.MESSAGE_A);
-        message.setMessageCode(Constants.A);
+        message.setMessageText(Constants.MESSAGE_A);
+        message.setCode(Constants.A);
         objectOutputStream.writeObject(message);
     }
 
     public void requestThanks() throws IOException {
         message = new Message();
-        message.setMessage(Constants.MESSAGE_D);
-        message.setMessageCode(Constants.D);
+        message.setMessageText(Constants.MESSAGE_D);
+        message.setCode(Constants.D);
         objectOutputStream.writeObject(message);
     }
 
     public void requestManufacturerDetails() throws IOException {
         message = new Message();
-        message.setMessage(Constants.MESSAGE_C);
-        message.setMessageCode(Constants.C);
+        message.setMessageText(Constants.MESSAGE_C);
+        message.setCode(Constants.C);
         objectOutputStream.writeObject(message);
     }
 
     public void sendWelcomeMessage() throws IOException {
         message = new Message();
-        message.setMessageCode(Constants.WELCOME);
-        message.setMessage(Constants.WELCOME_MESSAGE);
+        message.setCode(Constants.WELCOME);
+        message.setMessageText(Constants.WELCOME_MESSAGE);
         objectOutputStream.writeObject(message);
     }
 
     public void requestToyInformation() throws IOException {
         message = new Message();
-        message.setMessageCode(Constants.B);
-        message.setMessage(Constants.MESSAGE_B);
+        message.setCode(Constants.B);
+        message.setMessageText(Constants.MESSAGE_B);
         objectOutputStream.writeObject(message);
     }
 
     public void requestToyIdentification() throws IOException {
         message = new Message();
-        message.setMessageCode(Constants.B);
-        message.setMessage(Constants.MESSAGE_A);
+        message.setCode(Constants.B);
+        message.setMessageText(Constants.MESSAGE_A);
         objectOutputStream.writeObject(message);
     }
 
     public void requestAllToyInformation() throws IOException {
         message = new Message();
-        message.setMessageCode(Constants.E);
-        message.setMessage(Constants.MESSAGE_E);
+        message.setCode(Constants.E);
+        message.setMessageText(Constants.MESSAGE_E);
         objectOutputStream.writeObject(message);
     }
 }
