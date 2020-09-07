@@ -1,14 +1,27 @@
 package Models;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Util {
 
-    public static String getCurrentDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        return dateFormat.format(date);
+    private static final String IPV4_REGEX =
+            "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                    "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                    "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\." +
+                    "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+
+    private static final Pattern IPv4_PATTERN = Pattern.compile(IPV4_REGEX);
+
+
+    public static boolean isValidInet4Address(String ip) {
+        if (ip == null) {
+            return false;
+        }
+
+        Matcher matcher = IPv4_PATTERN.matcher(ip);
+
+        return matcher.matches();
     }
 
     public static String printToyObject(Toy toy) {

@@ -38,17 +38,23 @@ public class SocketClient implements ClientMessageListener {
                 }
             } catch (UnknownHostException e) {
                 System.err.println("Don't know about host " + hostName);
+                controller.showError("Don't know about host " + hostName);
                 System.exit(1);
             } catch (ConnectException e) {
                 System.err.println("Connection Refused");
+                controller.showError("Connection Refused");
                 System.exit(1);
             } catch (IOException e) {
                 e.printStackTrace();
                 System.err.println("Couldn't get I/O for the connection to " +
                         hostName);
+                controller.showError("Couldn't get I/O for the connection to " +
+                        hostName);
                 System.exit(1);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+                controller.showError("Error occured");
+                System.exit(1);
             }
         };
 

@@ -2,16 +2,27 @@ package Server;
 
 import Server.GUI.MainView;
 
+import javax.swing.*;
+
 public class App {
 
     public static void main(String[] args) {
 
-        if (args.length != 1) {
-            System.err.println("Usage: java Server.SocketServer <port number>");
+        String portNumberString = (String) JOptionPane.showInputDialog(null,
+                "Input server port number", "Server Gui", JOptionPane.PLAIN_MESSAGE,
+                null, null, "4444");
+
+        int portNumber = 4444;
+        try {
+            portNumber = Integer.parseInt(portNumberString);
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid port number");
+            JOptionPane.showMessageDialog(null,
+                    "Invalid port number",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
-
-        int portNumber = Integer.parseInt(args[0]);
 
         MainView jFrame = new MainView("Server GUI");
         jFrame.setVisible(true);

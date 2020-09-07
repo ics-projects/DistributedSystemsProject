@@ -108,4 +108,11 @@ public class Controller {
     public void postToy(Toy clientToy) {
         view.getMessageTextArea().append("Client : " + Util.printToyObject(clientToy) + "\n");
     }
+
+    public void showError(String errorMessage) {
+        JOptionPane.showMessageDialog(view,
+                errorMessage,
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
 }
