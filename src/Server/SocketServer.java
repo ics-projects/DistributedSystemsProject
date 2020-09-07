@@ -48,4 +48,28 @@ public class SocketServer {
             listener.requestToyInformation();
         }
     }
+
+    public void requestToyId() {
+        for (MessagesListener listener : clientTasks) {
+            listener.requestToyId();
+        }
+    }
+
+    public void requestManufacturer() {
+        for (MessagesListener listener : clientTasks) {
+            listener.requestManufacturer();
+        }
+    }
+
+    public void requestThanks() {
+        for (MessagesListener listener : clientTasks) {
+            listener.requestThanks();
+        }
+    }
+
+    public void requestAll() {
+        for (MessagesListener listener : clientTasks) {
+            listener.requestAll();
+        }
+    }
 }

@@ -11,7 +11,7 @@ public class Constants {
     public static final String MESSAGE_B = "Server : Send the toy information (name, description, price, date of manufacture, batch number)";
 
     public static final int C = 1003;
-    public static final String MESSAGE_C = "Server : Send the toy manufacturer details ((company name, street address, zip-code, country) ";
+    public static final String MESSAGE_C = "Server : Send the toy manufacturer details (company name, street address, zip-code, country) ";
 
     public static final int D = 1004;
     public static final String MESSAGE_D = "Server : Send a thank you message with a unique code";

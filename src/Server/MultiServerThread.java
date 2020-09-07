@@ -51,4 +51,40 @@ public class MultiServerThread implements Runnable, MessagesListener {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void requestToyId() {
+        try {
+            serverProtocol.requestToyIdentification();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void requestManufacturer() {
+        try {
+            serverProtocol.requestManufacturerDetails();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void requestThanks() {
+        try {
+            serverProtocol.requestThanks();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void requestAll() {
+        try {
+            serverProtocol.requestAllToyInformation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -7,6 +7,9 @@ public class MainView extends JFrame {
     private JButton toyInfoBtn;
     private JButton toyIdBtn;
     private JPanel mainPanel;
+    private JButton toyManuBtn;
+    private JButton thanksBtn;
+    private JButton allBtn;
 
     public MainView(String title) {
         super(title);
@@ -22,5 +25,21 @@ public class MainView extends JFrame {
 
     public JTextArea getMessageTextArea() {
         return messageTextArea;
+    }
+
+    public JButton getToyIdBtn() {
+        return toyIdBtn;
+    }
+
+    public JButton getToyManuBtn() {
+        return toyManuBtn;
+    }
+
+    public JButton getThanksBtn() {
+        return thanksBtn;
+    }
+
+    public JButton getAllBtn() {
+        return allBtn;
     }
 }
