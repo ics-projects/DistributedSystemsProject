@@ -45,6 +45,12 @@ public class Controller {
         JTextField zipField = view.getManZipField();
         JTextField countryField = view.getManCountryField();
 
+        if (nameField.getText().isEmpty() || streetField.getText().isEmpty() ||
+                zipField.getText().isEmpty() || countryField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Missing Data");
+            return;
+        }
+
         ToyManufacturer toyManufacturer = new ToyManufacturer();
         toyManufacturer.setCompanyName(nameField.getText());
         toyManufacturer.setStreetAddress(streetField.getText());
@@ -69,14 +75,27 @@ public class Controller {
         JTextField dom = view.getInfoDomField();
         JTextField batchNumber = view.getInfoBatchField();
 
-        Toy toy = new Toy();
-        toy.setName(nameField.getText());
-        toy.setDescription(description.getText());
-        toy.setPrice(Integer.parseInt(price.getText()));
-        toy.setDom(dom.getText());
-        toy.setBatchNumber(batchNumber.getText());
+        if (nameField.getText().isEmpty() || description.getText().isEmpty() ||
+                price.getText().isEmpty() || dom.getText().isEmpty() ||
+                batchNumber.getText().isEmpty()
+        ) {
+            JOptionPane.showMessageDialog(view, "Missing Data");
+            return;
+        }
 
-        socketClient.sendToy(toy);
+        try {
+            Toy toy = new Toy();
+            toy.setName(nameField.getText());
+            toy.setDescription(description.getText());
+            toy.setPrice(Integer.parseInt(price.getText()));
+            toy.setDom(dom.getText());
+            toy.setBatchNumber(batchNumber.getText());
+
+            socketClient.sendToy(toy);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(view, "Invalid price");
+            return;
+        }
 
         nameField.setText(null);
         description.setText(null);
@@ -90,6 +109,11 @@ public class Controller {
     private void sendToyIdentification(ActionEvent event) {
         JTextField nameField = view.getIdNameField();
         JTextField codeField = view.getIdCodeField();
+
+        if (nameField.getText().isEmpty() || codeField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Missing Data");
+            return;
+        }
 
         Toy toy = new Toy();
         toy.setName(nameField.getText());
