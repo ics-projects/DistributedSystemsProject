@@ -20,11 +20,11 @@ public class ClientView extends JFrame {
     private JTextField infoDomField;
     private JTextField infoBatchField;
     private JButton infoSendBtn;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JTextField textField8;
-    private JTextField textField9;
-    private JButton sendButton1;
+    private JTextField manNameField;
+    private JTextField manStreetField;
+    private JTextField manZipField;
+    private JTextField manCountryField;
+    private JButton manSendBtn;
     private JButton sendThanksButton;
     private JTextArea messageTextArea;
     private JPanel mainPanel;
@@ -75,5 +75,25 @@ public class ClientView extends JFrame {
 
     public JButton getInfoSendBtn() {
         return infoSendBtn;
+    }
+
+    public JTextField getManNameField() {
+        return manNameField;
+    }
+
+    public JTextField getManStreetField() {
+        return manStreetField;
+    }
+
+    public JTextField getManZipField() {
+        return manZipField;
+    }
+
+    public JTextField getManCountryField() {
+        return manCountryField;
+    }
+
+    public JButton getManSendBtn() {
+        return manSendBtn;
     }
 }

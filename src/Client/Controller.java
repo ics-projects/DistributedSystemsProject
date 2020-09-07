@@ -3,6 +3,7 @@ package Client;
 import Client.GUI.ClientView;
 import Models.Message;
 import Models.Toy;
+import Models.ToyManufacturer;
 import Models.Util;
 
 import javax.swing.*;
@@ -25,6 +26,30 @@ public class Controller {
         socketClient.startClient(hostName, portNumber);
         view.getIdSendBtn().addActionListener(this::sendToyIdentification);
         view.getInfoSendBtn().addActionListener(this::sendToyInformation);
+        view.getManSendBtn().addActionListener(this::sendManufacturing);
+    }
+
+    private void sendManufacturing(ActionEvent event) {
+        JTextField nameField = view.getInfoNameField();
+        JTextField streetField = view.getManStreetField();
+        JTextField zipField = view.getManZipField();
+        JTextField countryField = view.getManCountryField();
+
+        ToyManufacturer toyManufacturer = new ToyManufacturer();
+        toyManufacturer.setCompanyName(nameField.getText());
+        toyManufacturer.setStreetAddress(streetField.getText());
+        toyManufacturer.setZipCode(zipField.getText());
+        toyManufacturer.setCountry(countryField.getText());
+
+        Toy toy = new Toy();
+        toy.setToyManufacturer(toyManufacturer);
+        socketClient.sendToy(toy);
+
+        nameField.setText(null);
+        streetField.setText(null);
+        zipField.setText(null);
+        countryField.setText(null);
+        JOptionPane.showMessageDialog(null, "Data Sent");
     }
 
     private void sendToyInformation(ActionEvent event) {
